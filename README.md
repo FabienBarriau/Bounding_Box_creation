@@ -6,6 +6,8 @@ For the moment only the interface work fine, i need to change the structure of t
 
 # How to use the interface
 
+![Alt](/Example.png "example")
+
 * Click on the image to create a point.
 * The bounding box will be the minimal rectangle that contains all the points.
 * R "return" to erase the last point ploted.
