@@ -6,10 +6,10 @@ For the moment only the interface work fine, i need to change the structure of t
 
 # How to use the interface
 
-Click on the image to create a point.
-The bounding box will be the minimal rectangle that contains all the points.
-Press R "return" to erase the last point ploted.
-Press Q or close the matplotlib window when you have the perfect bounding box and pass to the other image.
+* Click on the image to create a point.
+* The bounding box will be the minimal rectangle that contains all the points.
+* R "return" to erase the last point ploted.
+* Q or close the matplotlib window when you have the perfect bounding box and pass to the other image.
 
 # Requirements
 
