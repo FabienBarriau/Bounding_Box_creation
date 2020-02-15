@@ -149,3 +149,13 @@ for c, name in enumerate(names_list):
 # Write the predicted BB in a file
 df = pd.DataFrame(np.vstack(bb_list), columns=["ul_x", "ul_y", "dr_x", "dr_y"])
 df.to_csv(r"C:\Users\Mojun\python_project\Bounding_Box_creation\df.csv", sep=";")
+
+# TODO: have a meaningful image database (flower?)
+# TODO: have a system to avoid having to crop the image each time, some kind of pre crop, it will allow us to be much
+#  faster in our testing and also have a much more useful program(like you can use the already cropped images to do
+#  other thing etc...). It will also serve as the base to create the resulting dataset containing the crop data that we
+#  will use to actually crop the images.
+# TODO: have a way to save VGG16 and BoundingBoxNet to allow training in multiple session(especially useful if you
+#  have a lot of cropping to do, so we can do it in multiple session)
+# TODO: improve UI to improve the training in batch process
+
