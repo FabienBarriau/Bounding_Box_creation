@@ -11,7 +11,7 @@ import pandas as pd
     reference(to del once add to readme) :
      PIL: https://pillow.readthedocs.io/en/3.1.x/index.html
 """
-
+# TODO: use relative path
 # LOCATION OF THE IMAGE
 FILE = r"C:\Users\Mojun\python_project\Bounding_Box_creation\Image"
 # Number of images to crop before training ie to feed the neural network
@@ -91,7 +91,6 @@ for c, name in enumerate(names_list):
     encoding = VGG16.predict(mini_im_tensor, batch_size=BATCH, verbose=1)
     encoding_list_temp.append(encoding)
 
-
     # BoundingBoxNet predict the value for the 2 points who define the bounding box.
     pred = np.reshape(BoundingBoxNet.predict(np.expand_dims(encoding, axis=0)), [2, 2]) * 224
     """
@@ -148,4 +147,19 @@ for c, name in enumerate(names_list):
 
 # Write the predicted BB in a file
 df = pd.DataFrame(np.vstack(bb_list), columns=["ul_x", "ul_y", "dr_x", "dr_y"])
+# TODO: use relative path
 df.to_csv(r"C:\Users\Mojun\python_project\Bounding_Box_creation\df.csv", sep=";")
+
+# TODO: have a meaningful image database (flower?)
+# TODO: have a system to avoid having to crop the image each time, some kind of pre crop, it will allow us to be much
+#  faster in our testing and also have a much more useful program(like you can use the already cropped images to do
+#  other thing etc...). It will also serve as the base to create the resulting dataset containing the crop data that we
+#  will use to actually crop the images.
+# TODO: have a way to save VGG16 and BoundingBoxNet to allow training in multiple session(especially useful if you
+#  have a lot of cropping to do, so we can do it in multiple session)
+# TODO: improve UI to improve the training in batch process
+# TODO: improve UI to allow a better exploration of the resulting BB
+# TODO: Implement YOLO in BoundingBoxNet
+# TODO: implement an asynchronous solution to continue cropping while the model is training
+# TODO: Reformat the code to allow a smooth increase in functionality and all
+
