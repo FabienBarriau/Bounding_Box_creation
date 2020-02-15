@@ -21,7 +21,7 @@ for c, name in enumerate(names_list):
     ax.set_axis_off()
     ax.imshow(im)
     plt.get_current_fig_manager().window.state('zoomed')
-    bb_app = gui.BoundingBoxDraw_app(ax, fig)
+    bb_app = gui.BoundingBoxDraw(ax, fig)
     plt.show(fig)
     bb = bb_app.get_bounding_box(format="ul_br")
     # Crop the image
