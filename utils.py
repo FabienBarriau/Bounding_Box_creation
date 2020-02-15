@@ -13,7 +13,7 @@ def create_model():
         keras.layers.Dense(units=4, activation=tf.sigmoid)
     ])
 
-    model.compile(optimizer=tf.train.AdamOptimizer(),
+    model.compile(optimizer=tf.optimizers.Adam(),
                   loss='mse',
                   metrics=['mse'])
 

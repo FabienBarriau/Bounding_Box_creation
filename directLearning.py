@@ -7,9 +7,9 @@ from tensorflow import keras
 from numpy.linalg import inv
 import pandas as pd
 
-FILE = "C:/Users/fabien/Desktop/Etheostoma/Google Doc/2013/BAI/Original/"
-BATCH = 5
-SHOW_RESULT = 15
+FILE = r"C:\Users\Mojun\python_project\Bounding_Box_creation\Image"
+BATCH = 1
+SHOW_RESULT = 3
 NBR_MAX = 100
 
 VGG16 = keras.applications.vgg16.VGG16(include_top=False, weights='imagenet', input_tensor=None,
@@ -18,10 +18,7 @@ VGG16 = keras.applications.vgg16.VGG16(include_top=False, weights='imagenet', in
 BoundingBoxNet = gui.create_model()
 
 names_list = list()
-for name in os.listdir(FILE):
-    extension = name.split(".")[1]
-    if extension.lower() in ["jpg", "png"]:
-        names_list.append(name)
+names_list = [name for name in os.listdir(FILE) if name.endswith(".jpg") or name.endswith(".png")]
 
 shape_list = list()
 encoding_list_temp = list()
@@ -30,6 +27,8 @@ bb_list = list()
 
 for c, name in enumerate(names_list):
 
+    if not FILE[-1] == "\\":
+        FILE += "\\"
     im = Image.open(FILE + name).convert("RGB")
 
     # scaling = transformation from square [224, 224] to rectangle im.size
@@ -85,5 +84,5 @@ for c, name in enumerate(names_list):
     print(c)
 
 df = pd.DataFrame(np.vstack(bb_list), columns=["ul_x", "ul_y", "dr_x", "dr_y"])
-df.to_csv("C:/Users/fabien/PycharmProjects/BoundingBoxDirectLearning/df.csv", sep=";")
+df.to_csv(r"C:\Users\Mojun\python_project\Bounding_Box_creation\df.csv", sep=";")
 
