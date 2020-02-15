@@ -83,6 +83,9 @@ for c, name in enumerate(names_list):
         VGG16 identified the useful features in our image, so that when our second NN to predict a BB it has
         meaningful feature to work on, instead of pixel/localisation shit
         cf classical CNN explication 
+        
+        mini_im_tensor => 3 dim: X/Y and then a 3rd dim where each "layer" is one of the img 
+         for ex: [X,Y,1]-> img1, [X,Y,2]-> img2 etc..
     """
     mini_im_tensor = np.expand_dims(np.asarray(im.resize([224, 224], Image.NEAREST)) / 255, axis=0)
     encoding = VGG16.predict(mini_im_tensor, batch_size=BATCH, verbose=1)

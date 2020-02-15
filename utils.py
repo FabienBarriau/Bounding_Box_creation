@@ -146,6 +146,7 @@ class BoundingBoxDraw:
     #No usage?
     def get_points_set(self):
         return self.points_list
+
     """
         key event capture and resulting interaction/processing
     """
